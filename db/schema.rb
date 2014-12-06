@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141206160627) do
+ActiveRecord::Schema.define(version: 20141206182607) do
 
   create_table "badges", force: true do |t|
     t.string   "name"
@@ -22,6 +22,57 @@ ActiveRecord::Schema.define(version: 20141206160627) do
   create_table "badges_users", id: false, force: true do |t|
     t.integer "user_id"
     t.integer "badge_id"
+  end
+
+  create_table "houses", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "place_id"
+    t.string   "title"
+    t.string   "img"
+    t.text     "base_layout_code"
+    t.text     "lesson_test_layout_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "quiz_question_answers", force: true do |t|
+    t.integer  "quiz_question_id"
+    t.text     "text"
+    t.boolean  "is_correct"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "quiz_questions", force: true do |t|
+    t.integer  "quiz_id"
+    t.string   "title"
+    t.integer  "points_gained"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "quizzes", force: true do |t|
+    t.integer  "room_id"
+    t.string   "title"
+    t.integer  "barier"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rooms", force: true do |t|
+    t.integer  "house_id"
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "description"
+    t.text     "base_layout_code"
+    t.text     "viewer_test_layout_code"
+    t.boolean  "video_enabled"
+    t.text     "video_url"
+    t.text     "quiz_base_layout_code"
+    t.float    "quiz_question_code"
+    t.boolean  "is_paid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "skills", force: true do |t|
