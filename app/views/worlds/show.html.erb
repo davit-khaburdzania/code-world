@@ -1,34 +1,19 @@
 <div class="row">
   <div class="col-md-10 col-md-offset-1">
-    
-      <a href="/house/1">
-        <div class="place">
-          <%= image_tag("house_1.png", :class => "place-img") %>
-          <span>PHP Loops</span>
-        </div>
-      </a>
-
-      <a href="/house/new">
-        <div class="place">
-          <img src="" alt="">
-          <span>Free</span>
-        </div>
-      </a>
-
-      <a href="/house/new">
-        <div class="place">
-          <img src="" alt="">
-          <span>Free</span>
-        </div>
-      </a>
-
-      <a href="/house/4">
-        <div class="place">
-          <%= image_tag("house_1.png", :class => "place-img") %>
-          <span>Switch-Case</span>
-        </div>
-      </a>
-      
-    </div>
+      <% (1..20).each do |place_id| %>
+        <%- if @house=find_place(@houses, place_id) %>
+          <div class="place">
+            <%= image_tag("house_1.png", :class => "place-img") %>
+            <%= link_to @house.title, @house %>
+          </div>
+        <% else %>
+          <a href="/house/new">
+            <div class="place">
+              <img src="" alt="">
+              <span>Create House</span>
+            </div>
+          </a>
+        <% end %>
+      <% end %>
   </div>
 </div>
