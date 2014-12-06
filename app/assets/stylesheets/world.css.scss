@@ -1,3 +1,32 @@
-// Place all the styles related to the World controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.place {
+  width: 200px;
+  height: 200px;
+  background: green;
+  display: inline-block;
+  border: 1px solid black;
+  padding: 10px;
+  vertical-align: top;
+}
+
+.place-img {
+  max-width:50px;
+}
+
+.user-info-container {
+  margin-top: 15px;
+  width: 300px;
+}
+
+.points-container {
+  margin-top: 15px;
+  width: 100px;
+}
+
+.inline-block {
+  display: inline-block;
+}
