@@ -35,6 +35,42 @@ ActiveRecord::Schema.define(version: 20141206182607) do
     t.datetime "updated_at"
   end
 
+  create_table "images", force: true do |t|
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "item_answers", force: true do |t|
+    t.integer  "item_question_id"
+    t.string   "text"
+    t.boolean  "is_correct"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "item_questions", force: true do |t|
+    t.string   "title"
+    t.float    "sale"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "item_questions_users", force: true do |t|
+    t.integer "user_id"
+    t.integer "item_question_id"
+  end
+
+  create_table "items", force: true do |t|
+    t.integer  "store_id"
+    t.string   "title"
+    t.float    "price"
+    t.float    "health"
+    t.integer  "image_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "quiz_question_answers", force: true do |t|
     t.integer  "quiz_question_id"
     t.text     "text"
@@ -84,6 +120,14 @@ ActiveRecord::Schema.define(version: 20141206182607) do
   create_table "skills_users", force: true do |t|
     t.integer "user_id"
     t.integer "skill_id"
+  end
+
+  create_table "stores", force: true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.integer  "place_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
