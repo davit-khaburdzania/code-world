@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <ul>
+      <% @worlds.each do |world| %>
+        <li><%= link_to world.name, world %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
