@@ -1,1 +1,5 @@
 <h2>Hello There</h2>
+<%- if @user.nil? %>
+  <%= link_to "Log in", new_session_path(User) %><br />
+  <%= link_to "Sign up", new_registration_path(User) %><br />
+<% end -%>
