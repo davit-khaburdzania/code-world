@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141206190901) do
+ActiveRecord::Schema.define(version: 20141206210202) do
 
   create_table "badges", force: true do |t|
     t.string   "name"
@@ -24,9 +24,16 @@ ActiveRecord::Schema.define(version: 20141206190901) do
     t.integer "badge_id"
   end
 
+  create_table "experiences", force: true do |t|
+    t.integer  "skill_id"
+    t.integer  "room_id"
+    t.boolean  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "houses", force: true do |t|
     t.integer  "user_id"
-    t.integer  "world_id"
     t.integer  "place_id"
     t.string   "title"
     t.string   "img"
@@ -96,6 +103,14 @@ ActiveRecord::Schema.define(version: 20141206190901) do
     t.datetime "updated_at"
   end
 
+  create_table "room_skills", force: true do |t|
+    t.integer  "skill_id"
+    t.integer  "room_id"
+    t.boolean  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "rooms", force: true do |t|
     t.integer  "house_id"
     t.integer  "user_id"
@@ -125,7 +140,6 @@ ActiveRecord::Schema.define(version: 20141206190901) do
 
   create_table "stores", force: true do |t|
     t.integer  "user_id"
-    t.integer  "world_id"
     t.string   "title"
     t.integer  "place_id"
     t.datetime "created_at"
