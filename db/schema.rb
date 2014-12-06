@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141206160627) do
+ActiveRecord::Schema.define(version: 20141206165151) do
 
   create_table "badges", force: true do |t|
     t.string   "name"
@@ -24,6 +24,42 @@ ActiveRecord::Schema.define(version: 20141206160627) do
     t.integer "badge_id"
   end
 
+  create_table "images", force: true do |t|
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "item_answers", force: true do |t|
+    t.integer  "item_question_id"
+    t.string   "text"
+    t.boolean  "is_correct"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "item_questions", force: true do |t|
+    t.string   "title"
+    t.float    "sale"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "item_questions_users", force: true do |t|
+    t.integer "user_id"
+    t.integer "item_question_id"
+  end
+
+  create_table "items", force: true do |t|
+    t.integer  "store_id"
+    t.string   "title"
+    t.float    "price"
+    t.float    "health"
+    t.integer  "image_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "skills", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -33,6 +69,14 @@ ActiveRecord::Schema.define(version: 20141206160627) do
   create_table "skills_users", force: true do |t|
     t.integer "user_id"
     t.integer "skill_id"
+  end
+
+  create_table "stores", force: true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.integer  "place_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
