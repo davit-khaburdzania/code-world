@@ -18,6 +18,17 @@ badge_entrepreneur.save
 #assign badge to user
 user.badges << badge_teacher
 
+#generate skills
+
+skill = Skill.new :name => "Ruby Loop"
+skill.save
+
+skill = Skill.new :name => "Ruby Variables"
+skill.save
+
+skill = Skill.new :name =>"Proc & Lambdas"
+skill.save
+
 #generate worlds
 ruby_world = World.create name: "Ruby"
 js_world = World.create name: "Javascript"
@@ -48,7 +59,6 @@ loop_house.rooms << loop_room
 loop_house.save
 
 loop_house = House.new place_id: 3, title: 'Hashes'
-loop_house.user = user
 loop_house.base_layout_code = "<div style='width:200px; height: 400px; border: 1px solid black; background: red;'>%-lesson_layout-%</div>"
 loop_house.lesson_list_layout_code = "<p><a href='%-link_to_lesson-%'>%-lesson_title-%</a></p>"
 loop_house.save
@@ -56,7 +66,6 @@ ruby_world.houses << loop_house
 ruby_world.save
 
 loop_house = House.new place_id: 4, title: 'IO'
-loop_house.user = user
 loop_house.base_layout_code = "<div style='width:600px; height: 500px; border: 1px solid black; background: gray;'>%-lesson_layout-%</div>"
 loop_house.lesson_list_layout_code = "<p><a href='%-link_to_lesson-%'>%-lesson_title-%</a></p>"
 loop_house.save

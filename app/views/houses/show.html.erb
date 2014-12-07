@@ -1,6 +1,6 @@
 <h2> <%= @house.title %> </h2>
 
-<%- if has_badge current_user.badges, 2 %>
+<%- if @house.user_id == current_user.id %>
   <h4>Options</h4>
   <%= link_to 'Create new room', new_room_path(:house_id => @house.id)%>
   <br/>

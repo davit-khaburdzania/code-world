@@ -13,6 +13,7 @@ class RoomsController < ApplicationController
   def new
     @house_id = params[:house_id]
     @room = Room.new
+    @skills = Skill.all
   end
 
   def create
@@ -34,6 +35,19 @@ class RoomsController < ApplicationController
     room.price = 0
     room.save
 
+    skills_required = params[:room][:skills_required]
+    skills_gained   = params[:room][:skills_gained]
+
+    skills_required.each do |skill_req|
+      experience = Experience.new :skill_id => skill_req, :status => 0
+      room.experiences << experience
+    end
+
+    skills_gained.each do |skills_gained|
+      experience = Experience.new :skill_id => skills_gained, :status => 1
+      room.experiences << experience
+    end
+
     current_user.points += 100
     current_user.health -= 15
     current_user.save
@@ -43,6 +57,6 @@ class RoomsController < ApplicationController
 
   private
   def new_room_params
-    params.require(:room).permit(:house_id, :video_enabled, :title, :description, :base_layout_code, :viewer_layout_code, :quiz_base_layout_code, :quiz_question_code)
+    params.require(:room).permit(:skills_required, :skills_gained, :house_id, :video_enabled, :title, :description, :base_layout_code, :viewer_layout_code, :quiz_base_layout_code, :quiz_question_code)
   end
 end

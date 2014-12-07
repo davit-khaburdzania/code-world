@@ -1,13 +1,58 @@
 <h2>Create New Room</h2>
 
 <%= form_for @room do |f| %>
-  <p><%= f.check_box :video_enabled %></p>
-  <p><%= f.text_field :title, :placeholder => 'title' %></p>
-  <p><%= f.text_area :description, :placeholder => 'description' %></p>
-  <p><%= f.text_area :base_layout_code, :placeholder => 'base layout code' %></p>
-  <p><%= f.text_area :viewer_layout_code, :placeholder => 'Viewer layout code' %></p>
-  <p><%= f.text_area :quiz_base_layout_code, :placeholder => 'quiz base layout' %></p>
-  <p><%= f.text_area :quiz_question_code, :placeholder => 'quiz question code' %></p>
-  <%= f.hidden_field :house_id, :value => @house_id %>
-  <p><%= f.submit 'Create room' %></p>
+
+  <p>
+  <label for="">Skills required</label>
+  <div style="width: 100%; height: 100px; overflow-y: hidden; border:1px solid gray;">
+    <%- @skills.each do |skill| %>
+      <input type="checkbox" name="room[skills_required][]" value="<%= skill.id %>"> <%= skill.name %>  <br>
+    <% end %>
+  </div>
+  </p>
+
+  <p>
+  <label for="">Skills gained</label>
+  <div style="width: 100%; height: 100px; overflow-y: hidden; border:1px solid gray;">
+    <%- @skills.each do |skill| %>
+      <input type="checkbox" name="room[skills_gained][]" value="<%= skill.id %>"> <%= skill.name %> <br>
+    <% end %>
+  </div>
+  </p>
+
+  <p><%= f.label :video_enabled %>
+  <%= f.check_box :video_enabled %></p>
+
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title, :placeholder => 'title', :class => 'form-control' %>
+  </p>
+
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_area :description, :placeholder => 'description', :class => 'form-control' %>
+  </p>
+
+  <p>
+    <%= f.label :base_layout_code %><br>
+    <%= f.text_area :base_layout_code, :placeholder => 'base layout code', :class => 'form-control' %>
+  </p>
+
+  <p>
+    <%= f.label :viewer_layout_code %><br>
+    <%= f.text_area :viewer_layout_code, :placeholder => 'Viewer layout code', :class => 'form-control' %>
+  </p>
+
+  <p>
+    <%= f.label :quiz_base_layout_code %><br>
+    <%= f.text_area :quiz_base_layout_code, :placeholder => 'quiz base layout', :class => 'form-control' %>
+  </p>
+
+  <p>
+    <%= f.label :quiz_question_code %><br>
+    <%= f.text_area :quiz_question_code, :placeholder => 'quiz question code', :class => 'form-control' %>
+  </p>
+
+  <%= f.hidden_field :house_id, :value => @house_id%>
+  <p><%= f.submit 'Create room', :class => 'btn btn-primary' %></p>
 <% end %>
