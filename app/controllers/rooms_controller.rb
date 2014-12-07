@@ -8,27 +8,6 @@ class RoomsController < ApplicationController
   def show
     @house = House.find params[:id]
     @rooms = @house.rooms
-
-    # lesson_layout = @house.lesson_list_layout_code
-    # base_layout = @house.base_layout_code
-    base_layout = "<div style='width:200px; height: 400px; border: 1px solid black; background: green;'>%-lesson_layout-%</div>"
-    lesson_layout = "<a href='%-link_to_lesson-%'>%-lesson_title-%</a></br>"
-    lesson_list = ""
-
-    # @rooms.each do |room|
-    #  lessons_str = lesson_layout.gsub '%-link_to_lesson-%', '/lessons/1'
-    #  lessons_str = lessons_str.gsub! '%-lesson_title-%', 'Lesson 1'
-    #  lesson_list += lessons_str
-    # end
-      
-    (1..10).each do |room|
-      lessons_str = lesson_layout
-      lessons_str = lessons_str.gsub '%-link_to_lesson-%', '/lessons/'+room.to_s
-      lessons_str = lessons_str.gsub '%-lesson_title-%', 'Lesson '+room.to_s
-      lesson_list += lessons_str
-    end
-
-    @room_html_code = base_layout.gsub '%-lesson_layout-%', lesson_list
   end
 
   def new
@@ -37,25 +16,33 @@ class RoomsController < ApplicationController
   end
 
   def create
-    house = House.find(new_house_params[:house_id])
+    house = House.find(new_room_params[:house_id])
     room = Room.new
 
     room.user  = current_user
     room.house = house
 
-    room.title = new_house_params[:title]
-    room.place_id = new_house_params[:place_id]
-    room.base_layout_code = new_house_params[:base_layout_code]
-    room.lesson_list_layout_code = new_house_params[:lesson_list_layout_code]
-    room.place_id = new_house_params[:place_id]
-
+    room.title = new_room_params[:title]
+    room.description = new_room_params[:description]
+    room.base_layout_code = new_room_params[:base_layout_code]
+    room.viewer_layout_code = new_room_params[:viewer_layout_code]
+    room.quiz_base_layout_code = new_room_params[:quiz_base_layout_code]
+    room.quiz_question_code = new_room_params[:quiz_question_code]
+    room.video_enabled = new_room_params[:video_enabled]
+    room.video_url = "http://youtube.com" if new_room_params[:video_enabled] == 1
+    room.is_paid = 0
+    room.price = 0
     room.save
 
-    redirect_to world
+    current_user.points += 100
+    current_user.health -= 15
+    current_user.save
+
+    redirect_to house
   end
 
   private
   def new_room_params
-    params.require(:house).permit(:title, :base_layout_code, :lesson_list_layout_code, :place_id, :world_id)
+    params.require(:room).permit(:house_id, :video_enabled, :title, :description, :base_layout_code, :viewer_layout_code, :quiz_base_layout_code, :quiz_question_code)
   end
 end

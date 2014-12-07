@@ -1,0 +1,13 @@
+<h2>Create New Room</h2>
+
+<%= form_for @room do |f| %>
+  <p><%= f.check_box :video_enabled %></p>
+  <p><%= f.text_field :title, :placeholder => 'title' %></p>
+  <p><%= f.text_area :description, :placeholder => 'description' %></p>
+  <p><%= f.text_area :base_layout_code, :placeholder => 'base layout code' %></p>
+  <p><%= f.text_area :viewer_layout_code, :placeholder => 'Viewer layout code' %></p>
+  <p><%= f.text_area :quiz_base_layout_code, :placeholder => 'quiz base layout' %></p>
+  <p><%= f.text_area :quiz_question_code, :placeholder => 'quiz question code' %></p>
+  <%= f.hidden_field :house_id, :value => @house_id %>
+  <p><%= f.submit 'Create room' %></p>
+<% end %>

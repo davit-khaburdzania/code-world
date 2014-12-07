@@ -6,6 +6,8 @@ class HousesController < ApplicationController
   end
 
   def show
+
+    
     @house = House.find params[:id]
     @rooms = @house.rooms
 
@@ -15,7 +17,7 @@ class HousesController < ApplicationController
 
     @rooms.each do |room|
       lessons_str = lesson_layout
-      lessons_str = lessons_str.gsub '%-link_to_lesson-%', '/lessons/'+room.id.to_s
+      lessons_str = lessons_str.gsub '%-link_to_lesson-%', '/rooms/'+room.id.to_s
       lessons_str = lessons_str.gsub '%-lesson_title-%', 'Lesson '+room.title
       lesson_list += lessons_str
     end
