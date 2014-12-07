@@ -9,5 +9,6 @@ class WorldsController < ApplicationController
   def show
     @world = World.find params[:id]
     @houses = @world.houses
+    @stores = @world.stores
   end
 end

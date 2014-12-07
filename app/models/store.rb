@@ -1,4 +1,4 @@
 class Store < ActiveRecord::Base
-  has_many :item
+  has_many :items
   belongs_to :world
 end

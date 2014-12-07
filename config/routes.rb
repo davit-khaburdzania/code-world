@@ -3,10 +3,12 @@ Rails.application.routes.draw do
   resources :houses
   resources :rooms
   resources :quizzes
+  resources :stores
   
   root to: "worlds#index"
   devise_for :users, :controllers => { registrations: 'registrations' }
 
+  get 'stores/:store_id/items/:item_id/buy' => 'items#buy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
