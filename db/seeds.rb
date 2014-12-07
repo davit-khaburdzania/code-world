@@ -1,5 +1,5 @@
 #generate user
-user = User.create full_name: "Jon Doe", email: "user@mail.com", password: "qwerasdf"
+user = User.create fullname: "Jon Doe", email: "user@mail.com", password: "qwerasdf"
 
 #generate badges
 
