@@ -17,17 +17,18 @@
         
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
+            <li class="points-container", style="width: 150px">
+              <span><%= current_user.fullname %></span>
+            </li>
+            <li class="points-container" style="width: 70px;">
+              <i class="glyphicon glyphicon-usd" style="color: green;"></i> <%=current_user.points %>
+            </li>
             <li class="points-container">
-              <i class="glyphicon glyphicon-usd"></i> <%=current_user.points %>
+              <i class="glyphicon glyphicon-heart-empty" style="color: red"></i> <%=current_user.health.to_i %>
             </li>
-            <li class="user-info-container">
-              <div class="progress">
-                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%=current_user.health %>" aria-valuemin="0" aria-valuemax="100" style="width: <%=current_user.health %>%">
-                  <span><%=current_user.health %> %</span>
-                </div>
-              </div>
+            <li>
+              <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
             </li>
-            <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %>  </li>
           </ul>
         </div> 
       </div>  
