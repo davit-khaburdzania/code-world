@@ -11,4 +11,9 @@ class CreateSkills < ActiveRecord::Migration
       t.belongs_to :skill
     end
   end
+
+  def drop
+    drop_table :skills
+    drop_table :skills_users
+  end
 end

@@ -5,4 +5,8 @@ class ItemQuestionUserRelationship < ActiveRecord::Migration
       t.belongs_to :item_question      
     end
   end
+
+  def drop
+    drop_table :item_questions_users
+  end
 end

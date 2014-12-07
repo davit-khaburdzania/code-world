@@ -11,4 +11,9 @@ class CreateBadgeTable < ActiveRecord::Migration
       t.belongs_to :badge
     end
   end
+
+  def drop
+    drop_table :badges
+    drop_table :badges_users
+  end
 end

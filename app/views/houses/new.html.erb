@@ -1,0 +1,10 @@
+<h2>Create new house</h2>
+
+<%= form_for @house do |f| %>
+  <p><%= f.text_field :title, placeholder: 'e.g: Loop'%></p>
+  <p><%= f.text_area :base_layout_code, placeholder: 'Some HTML code' %></p>
+  <p><%= f.text_area :lesson_list_layout_code, placeholder: 'More HTML code' %></p>
+  <p><%= f.hidden_field :place_id, :value => @place_id %></p>
+  <p><%= f.hidden_field :world_id, :value => @world_id %></p>
+  <p><%= f.submit 'Create House'%></p>
+<% end %>
