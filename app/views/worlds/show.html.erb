@@ -1,19 +1,17 @@
 <div class="row">
   <div class="col-md-10 col-md-offset-1">
-      <% (1..20).each do |place_id| %>
-        <%- if @house=find_place(@houses, place_id) %>
+    <% (1..20).each do |place_id| %>
+      <%- if @house=find_place(@houses, place_id) %>
+        <div class="place">
+          <%= image_tag(@house.img, :class => "place-img") %>
+          <%= link_to @house.title, @house %>
+        </div>
+      <% else %>
           <div class="place">
-            <%= image_tag("house_1.png", :class => "place-img") %>
-            <%= link_to @house.title, @house %>
+            <img src="" alt="">
+            <span><%= link_to 'Create', new_house_path(:place_id => place_id, :world_id => @world.id) %></span>
           </div>
-        <% else %>
-          <a href="/house/new">
-            <div class="place">
-              <img src="" alt="">
-              <span>Create House</span>
-            </div>
-          </a>
-        <% end %>
       <% end %>
+    <% end %>
   </div>
 </div>

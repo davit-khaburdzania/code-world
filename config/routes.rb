@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   resources :worlds
   resources :houses
+  resources :rooms
+  
   root to: "worlds#index"
 
   # The priority is based upon order of creation: first created -> highest priority.

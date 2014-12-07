@@ -8,4 +8,8 @@ class CreateQuizQuestionAnswers < ActiveRecord::Migration
       t.timestamps
     end
   end
+
+  def drop
+    drop_table :quiz_question_answers
+  end
 end

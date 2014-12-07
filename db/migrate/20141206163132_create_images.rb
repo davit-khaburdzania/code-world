@@ -6,4 +6,8 @@ class CreateImages < ActiveRecord::Migration
       t.timestamps
     end
   end
+
+  def drop
+    drop_table :images
+  end
 end

@@ -1,0 +1,13 @@
+<h2> <%= @house.title %> </h2>
+
+<%- if has_badge current_user.badges, 2 %>
+  <h4>Options</h4>
+  <%= link_to 'Create new room', new_room_path(:house_id => @house.id)%>
+  <br/>
+  <hr>
+<% end %>
+<div class="row">
+  <div class="col-md-12">
+    <%= raw @room_html_code %>
+  </div>
+</div>

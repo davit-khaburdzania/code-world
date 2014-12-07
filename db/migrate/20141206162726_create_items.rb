@@ -10,4 +10,8 @@ class CreateItems < ActiveRecord::Migration
       t.timestamps
     end
   end
+
+  def drop
+    drop_table :items
+  end
 end

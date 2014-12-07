@@ -10,4 +10,8 @@ class CreateStores < ActiveRecord::Migration
       t.timestamps
     end
   end
+
+  def drop
+    drop_table :stores
+  end
 end

@@ -8,4 +8,8 @@ class CreateExperiences < ActiveRecord::Migration
       t.timestamps
     end
   end
+
+  def drop
+    drop_table :experiences
+  end
 end

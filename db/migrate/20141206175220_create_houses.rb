@@ -8,9 +8,13 @@ class CreateHouses < ActiveRecord::Migration
       t.string :title
       t.string :img
       t.text :base_layout_code
-      t.text :lesson_test_layout_code
+      t.text :lesson_list_layout_code
 
       t.timestamps
     end
+  end
+
+  def drop
+    drop_table :houses
   end
 end

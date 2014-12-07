@@ -7,4 +7,8 @@ class CreateItemQuestions < ActiveRecord::Migration
       t.timestamps
     end
   end
+
+  def drop
+    drop_table :item_questions
+  end
 end

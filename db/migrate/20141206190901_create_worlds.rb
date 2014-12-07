@@ -6,4 +6,8 @@ class CreateWorlds < ActiveRecord::Migration
       t.timestamps
     end
   end
+
+  def drop
+    drop_table :worlds
+  end
 end

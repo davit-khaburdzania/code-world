@@ -8,4 +8,8 @@ class CreateItemAnswers < ActiveRecord::Migration
       t.timestamps
     end
   end
+
+  def drop
+    drop_table :item_answers
+  end
 end
