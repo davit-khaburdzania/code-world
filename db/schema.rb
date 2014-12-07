@@ -142,7 +142,7 @@ ActiveRecord::Schema.define(version: 20141206210202) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "full_name"
+    t.string   "fullname"
     t.integer  "points",                 default: 100
     t.float    "health",                 default: 100.0
     t.datetime "created_at"

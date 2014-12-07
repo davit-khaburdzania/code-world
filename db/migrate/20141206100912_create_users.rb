@@ -1,7 +1,7 @@
 class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
-      t.string :full_name
+      t.string :fullname
       t.integer :points, default: 100
       t.float :health, default: 100
 

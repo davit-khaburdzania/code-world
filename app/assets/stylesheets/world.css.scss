@@ -1,3 +1,5 @@
+html, body {margin:0;padding:0;height:100%;}
+
 .navbar .logo a {
   color: #CD4D56;
 }
@@ -8,12 +10,9 @@ a {
 }
 
 .place {
-  width: 200px;
-  height: 200px;
-  background: rgb(203, 250, 203);
+  width: 230px;
+  height: 230px;
   display: inline-block;
-  border: 1px solid black;
-  padding: 10px;
   vertical-align: top;
 }
 
@@ -129,4 +128,67 @@ a {
 .cs-style-1 figcaption a {
   margin-top: 30px;
   text-decoration: none;
+}
+
+// end of houses
+
+.auth {
+  background-image: image-url("world1.jpeg");
+  background-size: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+.auth .login, .auth .signup {
+  width: 400px;
+  margin: 0 auto;
+  margin-top: 80px;
+  background-color: #fff;
+  height: 500px;
+  padding-top: 50px;
+  text-align: center;
+  border-radius: 4px;
+}
+.auth .signup {
+  height: 560px;
+}
+
+.auth .login #user_email, .auth .login #user_password {
+  padding: 12px 30px;
+  font-size: 20px;
+  margin-top: 15px;
+  border: 2px solid #3D3D3D
+}
+
+.auth .signup #user_fullname, .auth .signup #user_email, .auth .signup #user_password, .auth .signup #user_password_confirmation {
+  padding: 12px 30px;
+  font-size: 20px;
+  margin-top: 15px;
+  border: 2px solid #3D3D3D
+}
+
+.auth .login #user_email:focus, .auth .login #user_password:focus {
+  outline: 0;
+}
+
+.auth .login input[type=submit], .auth .signup input[type=submit]{
+  background-color: #E8737B;
+  border: none;
+  font-size: 21px;
+  text-align: center;
+  color: #fff;
+  margin-top: 25px;
+  padding: 11px 117px;
+  margin-bottom: 40px;
+}
+
+.inside-world {
+  background-color: #EBFFD0;
+  text-align: center;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  margin-top: -20px;
+  height: 100%;
+  padding-top: 70px;
 }
