@@ -6,8 +6,15 @@ class RoomsController < ApplicationController
   end
 
   def show
-    @house = House.find params[:id]
-    @rooms = @house.rooms
+    @room = Room.find params[:id]
+
+    base_layout = @room.base_layout_code
+    viewer_layout = @room.viewer_layout_code
+ 
+    html = base_layout
+    html = html.gsub '%-tutorial_viewer-%', viewer_layout
+
+    @room_html_code = html
   end
 
   def new
@@ -47,6 +54,8 @@ class RoomsController < ApplicationController
       experience = Experience.new :skill_id => skills_gained, :status => 1
       room.experiences << experience
     end
+
+    room.save
 
     current_user.points += 100
     current_user.health -= 15

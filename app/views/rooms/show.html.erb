@@ -1,0 +1,17 @@
+<h2> <%= @room.title %> </h2>
+
+<%- if @room.user_id == current_user.id %>
+  <h4>Options</h4>
+
+  <%-if !@room.quiz%>
+    <%= link_to 'Create quiz', new_quiz_path(:room_id => @room.id) %>
+  <% end %>
+  <br/>
+  <hr>
+<% end %>
+
+<div class="row">
+  <div class="col-md-12">
+    <%= raw @room_html_code %>
+  </div>
+</div>

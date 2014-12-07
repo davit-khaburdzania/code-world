@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :worlds
   resources :houses
   resources :rooms
+  resources :quizzes
   
   root to: "worlds#index"
   devise_for :users, :controllers => { registrations: 'registrations' }
