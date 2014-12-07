@@ -3,16 +3,20 @@
     <% (1..18).each do |place_id| %>
       <%- if @house=find_place(@houses, place_id) %>
         <div class="place">
-          <%= image_tag("house_1.png", :class => "place-img") %>
-          <%= link_to @house.title, @house %>
+          <%= image_tag("house_2.png", :class => "place-img") %>
+          <span class='label label-info place-link', style="background: #88D4EA">
+            <%= link_to @house.title, @house %>
+           </span> 
         </div>
       <% else %>
-          <div class="place">
-            <img src="" alt="">
-            <span class="label label-success">
-              <%= link_to 'Create', new_house_path(:place_id => place_id, :world_id => @world.id), style: "color: #fff;" %>
+        <div class="place">
+          <div class="empty">
+            <%= image_tag("house_empty.png", :class => "place-img") %>
+            <span class='label label-success place-link', style="background: #FFBBB9;">
+              <%= link_to 'Create', new_house_path(:place_id => place_id, :world_id => @world.id) %>
             </span>
           </div>
+        </div>
       <% end %>
     <% end %>
   </div>
