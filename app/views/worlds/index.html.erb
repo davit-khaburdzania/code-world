@@ -1,8 +1,16 @@
 <div class="row">
   <div class="col-md-10 col-md-offset-1">
-    <ul>
+    <ul class="worlds grid cs-style-1">
       <% @worlds.each do |world| %>
-        <li><%= link_to world.name, world %></li>
+        <li>
+          <figure>
+            <%= image_tag("#{world.name.downcase}.png") %>
+            <figcaption>
+                <h3><%= world.name.upcase %> World</h3>
+                <%= link_to 'Explore', world %>
+            </figcaption>
+          </figure>
+        </li>
       <% end %>
     </ul>
   </div>

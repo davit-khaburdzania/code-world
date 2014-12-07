@@ -1,3 +1,7 @@
+.navbar .logo a {
+  color: #CD4D56;
+}
+
 a {
   text-decoration: none;
   cursor: pointer;
@@ -29,4 +33,100 @@ a {
 
 .inline-block {
   display: inline-block;
+}
+
+
+// world hover effect
+.grid {
+  padding: 20px 20px 100px 20px;
+  max-width: 1300px;
+  margin: 0 auto;
+  list-style: none;
+  text-align: center;
+}
+ 
+.grid li {
+  display: inline-block;
+  width: 440px;
+  margin: 0;
+  padding: 20px;
+  text-align: left;
+  position: relative;
+}
+
+.grid figure {
+  margin: 0;
+  position: relative;
+}
+
+.grid figure img {
+  max-width: 100%;
+  display: block;
+  position: relative;
+}
+
+.grid figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  background: #2c3f52;
+  color: #ed4e6e;
+}
+
+.grid figcaption h3 {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
+ 
+.grid figcaption span:before {
+  content: 'by ';
+}
+ 
+.grid figcaption a {
+  text-align: center;
+  padding: 8px 30px;
+  border-radius: 2px;
+  display: inline-block;
+  background: #ed4e6e;
+  color: #fff;
+}
+
+@media screen and (max-width: 31.5em) {
+  .grid {
+    padding: 10px 10px 100px 10px;
+  }
+  .grid li {
+    width: 100%;
+    min-width: 300px;
+  }
+}
+
+.cs-style-1 figcaption {
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  text-align: center;
+  backface-visibility: hidden;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.no-touch .cs-style-1 figure:hover figcaption,
+.cs-style-1 figure:hover figcaption {
+  opacity: 1;
+  transform: translate(15px, 15px);
+}
+
+.cs-style-1 figcaption h3 {
+  margin-top: 70px;
+}
+ 
+.cs-style-1 figcaption span {
+  display: block;
+}
+ 
+.cs-style-1 figcaption a {
+  margin-top: 30px;
+  text-decoration: none;
 }
