@@ -1,6 +1,5 @@
 ## Description
-
-![Koding Hackathon](https://raw.githubusercontent.com/koding/hackathon.submit/master/images/badge.png]
+![Koding Hackathon](https://raw.githubusercontent.com/koding/hackathon.submit/master/images/badge.png)
 
 Code Worlds aim is to help beginner programmers learn programming while playing game and having fun. Original idea was that player has to create everything using code like Houses, Stores, Tutorials and style inner design of everything using html/css, it would be virtual world where you could learn new skills and build your programming worlds to share your knowledge width others.
 
