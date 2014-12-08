@@ -5,9 +5,15 @@ Rails.application.routes.draw do
   resources :quizzes
   resources :quiz_questions
   resources :stores
+  resources :buildings
+  resources :item_questions
 
   get '/check-answer', to: "quizzes#check_answer"
+  get '/check-store-answer', to: "stores#check_store_answer"
   get 'stores/:store_id/items/:item_id/buy' => 'items#buy'
+  get 'stores/:store_id/items/:item_id/free' => 'items#free'
+  get '/badges/' => 'badges#index'
+  get '/badges/new' => 'badges#new'
   
   root to: "worlds#index"
   devise_for :users, :controllers => { registrations: 'registrations' }

@@ -20,7 +20,7 @@ class RoomsController < ApplicationController
       html = html.gsub '%-link_to_quiz-%', '#'
     end
 
-    @room_html_code = html.gsub '%-link_to_quiz-%', '/quizzes/'
+    @room_html_code = html
   end
 
   def new

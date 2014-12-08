@@ -138,6 +138,7 @@ ActiveRecord::Schema.define(version: 20141206210202) do
     t.integer  "world_id"
     t.string   "title"
     t.integer  "place_id"
+    t.integer  "type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,0 +1,15 @@
+<h3>To get item for free, you should answer to this question</h3>
+
+<h3><%= @item_question.title %></h3>
+
+<form action='/check-store-answer' method='get'>
+  <%- @item_question.item_answers.each do |ans| %>
+    <input type='radio' name='answer_id' value='<%= ans.id.to_s %>'> <%= ans.text %> <br>
+  <% end %>
+  <br>
+
+  <input type='hidden' name='question_id' value='<%= @item_question.id %>'>
+  <input type='hidden' name='item_id' value='<%= @item.id %>'>
+  <input type='hidden' name='store_id' value='<%= @store_id %>'>
+  <input type='submit' value='Submit'>
+</form>

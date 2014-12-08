@@ -6,6 +6,7 @@ class CreateStores < ActiveRecord::Migration
       
       t.string :title
       t.integer :place_id
+      t.integer :type_id
 
       t.timestamps
     end

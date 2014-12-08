@@ -19,8 +19,24 @@ class QuizzesController < ApplicationController
       incorrect_count = session[:incorrect_count]
 
       if total_points >= barier
-        current_user.points += 100
         current_user.health -= 10
+        if(current_user.id != @quiz.room.user.id && @quiz.room.house.user.id)
+          current_user.points += 100
+          @quiz.room.user.points += 100
+          @quiz.room.house.user.points += 100
+
+          experiences = @quiz.room.experiences.where('status != ?', false);
+
+          experiences.each do |exp|
+            current_user.skills << exp.skill
+          end
+
+        end
+        current_user.save
+        @quiz.room.user.save
+        @quiz.room.house.user.save
+
+        # add skills to user
 
         @html = "<h1> You successfully passed the quiz<h1>"
         @html += "Correct Answers: " + correct_count.to_s

@@ -17,8 +17,13 @@
         
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
+            <% if current_user.points >= 10%>
+              <li style="width: 150px; margin-top:10px">
+                <span><a href="/badges" class="btn btn-sm btn-success">Select New Badge</a></span>
+              </li>
+            <%end%>
             <li class="points-container", style="width: 150px">
-              <span><%= current_user.fullname %></span>
+              <span><%= current_user.fullname %>(<%= current_user.badges.first.name %>)</span>
             </li>
             <li class="points-container" style="width: 70px;">
               <i class="glyphicon glyphicon-usd" style="color: green;"></i> <%=current_user.points %>

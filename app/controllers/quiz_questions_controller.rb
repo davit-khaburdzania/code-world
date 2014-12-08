@@ -2,7 +2,6 @@ class QuizQuestionsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-
     quiz = Quiz.find new_quiz_question_params[:room_id]
     quiz_question = QuizQuestion.new
 

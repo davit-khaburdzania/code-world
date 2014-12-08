@@ -1,3 +1,13 @@
+
+<% if current_user.badges.first.id == 3 || @store.user.id == current_user.id %>
+  <header class="show-house">
+    <a href="/item_questions/new">
+      <button class="create-room">Add quiz for item</button>
+    </a>
+  </header>
+  <br>
+<% end %>
+
 <div class="notices">
   <% flash.each do |name, msg|%>
     <% if name=="alert_success" %>
@@ -26,6 +36,9 @@
           <span>  <%= item.price.to_i %></span>
           <i class="glyphicon glyphicon-usd" style="color: green"></i>
           <br>
+          <a href="/stores/<%= item.store.id %>/items/<%= item.id %>/free" class="buy">
+            <span class="label label-primary">Free</span>
+          </a>
           <br>
           <a href="/stores/<%= item.store.id %>/items/<%= item.id %>/buy" class="buy">
             <span class="label label-success">Buy</span>
