@@ -1,11 +1,14 @@
-<h2> <%= @house.title %> </h2>
+<header class="show-house">
+  <h2> <%= @house.title %> </h2>
 
-<%- if @house.user_id == current_user.id %>
-  <h4>Options</h4>
-  <%= link_to 'Create new room', new_room_path(:house_id => @house.id)%>
-  <br/>
-  <hr>
-<% end %>
+  <%- if @house.user_id == current_user.id %>
+    <br>
+    <a href="/rooms/new?house_id=<%= @house.id %>">
+      <button class="create-room">Create New Room</button>
+    </a>
+  <% end %>
+</header>
+
 <div class="row">
   <div class="col-md-12">
     <%= raw @room_html_code %>

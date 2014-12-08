@@ -26,8 +26,8 @@ js_world = World.create name: "Javascript"
 #generate houses
 loop_house = House.new place_id: 2, title: 'Loops'
 loop_house.user = user
-loop_house.base_layout_code = "<div style='width:200px; height: 400px; border: 1px solid black; background: green;'>%-lesson_layout-%</div>"
-loop_house.lesson_list_layout_code = "<a href='%-link_to_lesson-%'>%-lesson_title-%</a>  </br>"
+loop_house.base_layout_code = "<ol style='width: 500px; padding-left: 18px;'>%-lesson_layout-%</ol>"
+loop_house.lesson_list_layout_code = "<li style='padding: 0px;border-bottom: 1px solid #efefef; position: relative;'><a href='%-link_to_lesson-%' style='text-decoration:none;display: block; padding: 20px;transition: background-color .2s linear;'><h2 style='font-size: 2.0rem;font-weight: 200; color:#333'>%-lesson_title-%</h2></a></li>"
 loop_house.save
 ruby_world.houses << loop_house
 ruby_world.save
@@ -49,15 +49,15 @@ loop_house.rooms << loop_room
 loop_house.save
 
 loop_house = House.new place_id: 4, title: 'Hashes'
-loop_house.base_layout_code = "<div style='width:200px; height: 400px; border: 1px solid black; background: red;'>%-lesson_layout-%</div>"
-loop_house.lesson_list_layout_code = "<p><a href='%-link_to_lesson-%'>%-lesson_title-%</a></p>"
+loop_house.base_layout_code = "<ol style='width: 500px; padding-left: 18px;'>%-lesson_layout-%</ol>"
+loop_house.lesson_list_layout_code = "<li style='padding: 0px;border-bottom: 1px solid #efefef; position: relative;'><a href='%-link_to_lesson-%' style='text-decoration:none;display: block; padding: 20px;transition: background-color .2s linear;'><h2 style='font-size: 2.0rem;font-weight: 200; color:#333'>%-lesson_title-%</h2></a></li>"
 loop_house.save
 ruby_world.houses << loop_house
 ruby_world.save
 
 loop_house = House.new place_id: 5, title: 'IO'
-loop_house.base_layout_code = "<div style='width:600px; height: 500px; border: 1px solid black; background: gray;'>%-lesson_layout-%</div>"
-loop_house.lesson_list_layout_code = "<p><a href='%-link_to_lesson-%'>%-lesson_title-%</a></p>"
+loop_house.base_layout_code = "<ol style='width: 500px; padding-left: 18px;'>%-lesson_layout-%</ol>"
+loop_house.lesson_list_layout_code = "<li style='padding: 0px;border-bottom: 1px solid #efefef; position: relative;'><a href='%-link_to_lesson-%' style='text-decoration:none;display: block; padding: 20px;transition: background-color .2s linear;'><h2 style='font-size: 2.0rem;font-weight: 200; color:#333'>%-lesson_title-%</h2></a></li>"
 loop_house.save
 ruby_world.houses << loop_house
 ruby_world.save
