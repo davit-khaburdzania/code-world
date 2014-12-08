@@ -285,3 +285,13 @@ a {
   font-weight: 500;
   padding-left: 0px;
 }
+
+.items .media .buy {
+  text-decoration: none;
+  span {
+    padding: 3px 26px;
+    color: #fff;
+    font-size: 0.9em;
+    cursor: pointer;
+  }
+}

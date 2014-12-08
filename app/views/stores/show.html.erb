@@ -1,0 +1,37 @@
+<div class="notices">
+  <% flash.each do |name, msg|%>
+    <% if name=="alert_success" %>
+      <div class="alert alert-success" role="alert"><%= msg %></div>
+    <% end %>
+    <% if name=="alert_danger" %>
+      <div class="alert alert-danger" role="alert"><%= msg %></div>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="row items">
+  <% @items.each do |item| %>
+    <div class="col-md-3">
+      <div class="media">
+        <a class="media-left" href="#">
+          <img src="<%= item.image.url %>" style="width:150px", class="img-thumbnail">
+        </a>
+        <div class="media-body">
+          <h4 class="media-heading"><%= item.title %></h4>
+          <span>Health: </span>
+          <span>  <%= item.health.to_i %></span>
+          <i class="glyphicon glyphicon-heart-empty" style="color: red"></i>
+          <br>
+          <span>Price: </span>
+          <span>  <%= item.price.to_i %></span>
+          <i class="glyphicon glyphicon-usd" style="color: green"></i>
+          <br>
+          <br>
+          <a href="/stores/<%= item.store.id %>/items/<%= item.id %>/buy" class="buy">
+            <span class="label label-success">Buy</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

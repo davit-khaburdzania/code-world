@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20141206210202) do
 
   create_table "images", force: true do |t|
     t.string   "url"
+    t.integer  "item_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

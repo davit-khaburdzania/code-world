@@ -8,6 +8,14 @@
             <%= link_to @house.title, @house %>
            </span> 
         </div>
+
+      <% elsif @store=find_place(@stores, place_id)%>
+        <div class="place">
+          <%= image_tag("house_2.png", :class => "place-img") %>
+          <span class='label label-info place-link', style="background: #88EAAE">
+            <%= link_to @store.title, @store %>
+           </span> 
+        </div>
       <% else %>
         <div class="place">
           <div class="empty">

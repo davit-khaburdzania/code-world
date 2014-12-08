@@ -17,13 +17,14 @@ badge_entrepreneur.save
 
 #assign badge to user
 user.badges << badge_teacher
+user.save
 
 #generate worlds
 ruby_world = World.create name: "Ruby"
 js_world = World.create name: "Javascript"
 
 #generate houses
-loop_house = House.new place_id: 1, title: 'Loops'
+loop_house = House.new place_id: 2, title: 'Loops'
 loop_house.user = user
 loop_house.base_layout_code = "<div style='width:200px; height: 400px; border: 1px solid black; background: green;'>%-lesson_layout-%</div>"
 loop_house.lesson_list_layout_code = "<a href='%-link_to_lesson-%'>%-lesson_title-%</a>  </br>"
@@ -47,14 +48,14 @@ loop_room.save
 loop_house.rooms << loop_room
 loop_house.save
 
-loop_house = House.new place_id: 3, title: 'Hashes'
+loop_house = House.new place_id: 4, title: 'Hashes'
 loop_house.base_layout_code = "<div style='width:200px; height: 400px; border: 1px solid black; background: red;'>%-lesson_layout-%</div>"
 loop_house.lesson_list_layout_code = "<p><a href='%-link_to_lesson-%'>%-lesson_title-%</a></p>"
 loop_house.save
 ruby_world.houses << loop_house
 ruby_world.save
 
-loop_house = House.new place_id: 4, title: 'IO'
+loop_house = House.new place_id: 5, title: 'IO'
 loop_house.base_layout_code = "<div style='width:600px; height: 500px; border: 1px solid black; background: gray;'>%-lesson_layout-%</div>"
 loop_house.lesson_list_layout_code = "<p><a href='%-link_to_lesson-%'>%-lesson_title-%</a></p>"
 loop_house.save
@@ -84,6 +85,22 @@ loop_room.experiences << experience
 loop_room.save
 
 
+# generate stores
 
+store = Store.create title: "Health Store", place_id: 1
 
+user.stores << store
+ruby_world.stores << store
 
+# generate items
+item1 = Item.create title: "Sandwich", price: 40, health: 15
+item1.image = Image.create url: "http://blogs.plos.org/obesitypanacea/files/2014/10/sandwich.jpg" 
+store.items << item1
+
+item2 = Item.create title: "Coffee", price: 15, health: 8
+item2.image = Image.create url: "http://www.truwestrealty.com/truwest_wp/wp-content/uploads/2014/07/Coffee.jpg"
+store.items << item2
+
+item3 = Item.create title: "Banana", price: 10, health: 5
+item3.image = Image.create url: "http://fitnessandhealthadvisor.com/wp-content/uploads/2013/05/bananas1.jpeg"
+store.items << item3
