@@ -61,20 +61,20 @@ class QuizzesController < ApplicationController
         session.delete(:incorrect_count)
     else
       base_layout_code = @quiz.room.quiz_base_layout_code
-      question_code = @quiz.room.quiz_question_code
-
-      question_html = question_code.gsub '%-quiz_question_title-%', @quiz_question.title
+      base_layout_code = base_layout_code.gsub '%-quiz_question_title-%', @quiz_question.title
+      
+      question_html = @quiz.room.quiz_question_code
 
       @quiz_question.quiz_question_answers.each_with_index do |ans, index|
         question_tag = '%-answer_' << (index+1).to_s << '-%'
-        radiobtn_str = "<input type='radio' name='answer_id' value='" << ans.id.to_s << "'> " << ans.text
+        radiobtn_str = "<input style='margin-bottom: 10px' type='radio' name='answer_id' value='" << ans.id.to_s << "'> " << ans.text
         single_question = 
         question_html = question_html.gsub question_tag, radiobtn_str
       end
 
       question_html = "<form action='/check-answer' method='get'>" << question_html
       question_html += "<input type='hidden' name='question_id' value='" << @quiz_question.id.to_s << "'>"
-      question_html += "</br><input type='submit' value='Submit'></form>"
+      question_html += "</form>"
 
       @html = base_layout_code.gsub '%-quiz_question_layout-%', question_html
     end

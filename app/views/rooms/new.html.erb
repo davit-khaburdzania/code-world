@@ -29,16 +29,24 @@
     <%= f.text_area :description, :placeholder => 'description', :class => 'form-control' %><br>
 
     <%= f.label :base_layout_code, :class => "label" %><br>
-    <%= f.text_area :base_layout_code, :placeholder => 'base layout code', :class => 'form-control' %><br>
+    <%= f.label :base_layout_code, "You can use %-tutorial_viewer-% variable to insert Tutorial viewer layout", :class => "label" %>
+    <br>
+    <%= f.text_area :base_layout_code, :value => "<div style='width: 100%;'><a href='%-link_to_quiz-%'> <button style='margin-top: -10px; background-color: #88DDA6; border: none; font-size: 15px; text-align: center; color: #fff; width: 158px; height: 39px;'> Take Quiz </button></a><br>%-tutorial_viewer-%</div>", :class => 'form-control' %><br>
 
     <%= f.label :viewer_layout_code, :class => "label" %><br>
-    <%= f.text_area :viewer_layout_code, :placeholder => 'Viewer layout code', :class => 'form-control' %><br>
+    <%= f.label :viewer_layout_code, "You can use %-tutorial_description-% variable to insert Tutorial description", :class => "label" %>
+    <br>
+    <%= f.text_area :viewer_layout_code, :value => "<div style='width: 100%; font-size: 1.1em; margin-top: 30px;'>%-tutorial_description-%</div>", :class => 'form-control' %><br>
 
     <%= f.label :quiz_base_layout_code, :class => "label" %><br>
-    <%= f.text_area :quiz_base_layout_code, :placeholder => 'quiz base layout', :class => 'form-control' %><br>
+    <%= f.label :quiz_base_layout_code, "You can use %-quiz_question_title-% and %-quiz_question_layout-% variables to insert data in quiz layout", :class => "label" %>
+    <br>
+    <%= f.text_area :quiz_base_layout_code, :value => "<div style='width: 100%;'><h1 style='border-bottom: 1px solid #ddd; padding-bottom: 10px; display: inline-block; font-size: 3.2rem; line-height: 1.1em; font-weight: 200; margin-bottom: 25px;'>%-quiz_question_title-%</h1>%-quiz_question_layout-%</div>", :class => 'form-control' %><br>
 
     <%= f.label :quiz_question_code, :class => "label" %><br>
-    <%= f.text_area :quiz_question_code, :placeholder => 'quiz question code', :class => 'form-control' %>
+    <%= f.label :quiz_base_layout_code, "You can use %-answer_1-% to %-answer_4-% variables to insert answers in quiz layout", :class => "label" %>
+    <br>
+    <%= f.text_area :quiz_question_code, :value => "<div style='width: 100%;'><div>%-answer_1-%</br>%-answer_2-%</br>%-answer_3-%</br>%-answer_4-%</br><input type='submit' style='margin-top: 20px; background-color: #88DDA6; border: none; font-size: 15px; text-align: center; color: #fff; width: 158px; height: 39px;'></br></div>", :class => 'form-control' %>
 
     <%= f.label :video_enabled, :class => "label" %>
     <%= f.check_box :video_enabled %><br><br>

@@ -37,11 +37,11 @@ loop_room.house = loop_house
 loop_room.user = user
 loop_room.title = "How to create new variable"
 loop_room.description = "This tutorial will help us to create new variable in ruby programm"
-loop_room.base_layout_code = "<div style='width: 100%; border: 1px solid black;'><h1> This is my tutorial. <a href='%-link_to_quiz-%'>Take Quiz</a> </h1><p>%-tutorial_viewer-%</p></div>"
-loop_room.viewer_layout_code = "<div style='width: 100%; border: 1px solid black;'><h1> This is my tutorial </h1><p>Step 1. </p><p>Step 2 </p></div>"
+loop_room.base_layout_code = "<div style='width: 100%;'><a href='%-link_to_quiz-%'> <button style='margin-top: -10px; background-color: #88DDA6; border: none; font-size: 15px; text-align: center; color: #fff; width: 158px; height: 39px;'> Take Quiz </button></a><br>%-tutorial_viewer-%</div>"
+loop_room.viewer_layout_code = "<div style='width: 100%; font-size: 1.1em; margin-top: 30px;'>%-tutorial_description-%</div>"
 loop_room.video_enabled = 0
-loop_room.quiz_base_layout_code = "<div style='width: 100%; border: 1px solid black;'><h1>This is my quiz</h1><p>%-quiz_question_layout-%</p></div>"
-loop_room.quiz_question_code = "<div style='width: 100%; border: 1px solid black;'><h1>This is my quiz</h1><p>%-quiz_question_title-%</p><p>%-answer_1-%</br>%-answer_2-%</br>%-answer_3-%</br>%-answer_4-%</br></p></div>"
+loop_room.quiz_base_layout_code = "<div style='width: 100%;'><h1 style='border-bottom: 1px solid #ddd; padding-bottom: 10px; display: inline-block; font-size: 3.2rem; line-height: 1.1em; font-weight: 200; margin-bottom: 25px;'>%-quiz_question_title-%</h1>%-quiz_question_layout-%</div>"
+loop_room.quiz_question_code = "<div style='width: 100%;'><div>%-answer_1-%</br>%-answer_2-%</br>%-answer_3-%</br>%-answer_4-%</br><input type='submit' style='margin-top: 20px; background-color: #88DDA6; border: none; font-size: 15px; text-align: center; color: #fff; width: 158px; height: 39px;'></br></div>"
 loop_room.is_paid = 0
 loop_room.save
 

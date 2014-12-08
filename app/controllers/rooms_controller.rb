@@ -13,6 +13,7 @@ class RoomsController < ApplicationController
  
     html = base_layout
     html = html.gsub '%-tutorial_viewer-%', viewer_layout
+    html = html.gsub '%-tutorial_description-%', @room.description
 
     if @room.quiz
       html = html.gsub '%-link_to_quiz-%', '/quizzes/' + @room.quiz.id.to_s 

@@ -7,10 +7,14 @@
     <%= f.label :title, :class => "label" %> <br>
     <%= f.text_field :title, placeholder: 'e.g: Loop'%> <br>
 
-    <%= f.label :base_layout_code, :class => "label"  %> <br>
+    <%= f.label :base_layout_code, :class => "label"  %><br>
+    <%= f.label :base_layout_code, "You can use %-lesson_layout-% variable to insert lesson layout", :class => "label" %>
+    <br>
     <%= f.text_area :base_layout_code, value: "<ol style='width: 500px; padding-left: 18px;'>%-lesson_layout-%</ol>" %><br>
     
-    <%= f.label :lesson_list_layout_code, :class => "label"  %> <br/>
+    <%= f.label :lesson_list_layout_code, :class => "label"  %><br>
+    <%= f.label :lesson_list_layout_code, "You can use %-lesson_title-% or %-link_to_lesson-% variables to style lesson list", :class => "label" %>
+    <br/>
     <%= f.text_area :lesson_list_layout_code, value: "<li style='padding: 0px;border-bottom: 1px solid #efefef; position: relative;'><a href='%-link_to_lesson-%' style='text-decoration:none;display: block; padding: 20px;transition: background-color .2s linear;'><h2 style='font-size: 2.0rem;font-weight: 200; color:#333'>%-lesson_title-%</h2></a></li>" %><br>
     
     <p><%= f.hidden_field :place_id, :value => @place_id %></p>
