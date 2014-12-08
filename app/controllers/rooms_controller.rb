@@ -14,7 +14,13 @@ class RoomsController < ApplicationController
     html = base_layout
     html = html.gsub '%-tutorial_viewer-%', viewer_layout
 
-    @room_html_code = html
+    if @room.quiz
+      html = html.gsub '%-link_to_quiz-%', '/quizzes/' + @room.quiz.id.to_s 
+    else
+      html = html.gsub '%-link_to_quiz-%', '#'
+    end
+
+    @room_html_code = html.gsub '%-link_to_quiz-%', '/quizzes/'
   end
 
   def new
