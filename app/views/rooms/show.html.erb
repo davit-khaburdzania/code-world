@@ -3,8 +3,10 @@
 <%- if @room.user_id == current_user.id %>
   <h4>Options</h4>
 
-  <%-if !@room.quiz%>
+  <%-if !@room.quiz %>
     <%= link_to 'Create quiz', new_quiz_path(:room_id => @room.id) %>
+  <% else %>
+    <%= link_to 'Edit quiz', edit_quiz_path(@room.quiz) %>
   <% end %>
   <br/>
   <hr>

@@ -3,10 +3,12 @@ Rails.application.routes.draw do
   resources :houses
   resources :rooms
   resources :quizzes
+  resources :quiz_questions
+
+  get '/check-answer', to: "quizzes#check_answer"
   
   root to: "worlds#index"
   devise_for :users, :controllers => { registrations: 'registrations' }
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

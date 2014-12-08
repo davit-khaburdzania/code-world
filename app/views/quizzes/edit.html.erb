@@ -1,0 +1,95 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="table-responsive">
+      <%- if @quiz.quiz_questions.count > 0%>
+        <table class="table table-striped">
+          <thead>
+            <tr> 
+              <th>Question</th> 
+              <th>Points Gained</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @quiz.quiz_questions.each do |q| %>
+            <tr>
+              <td>
+                <%= q.title %>
+              </td>  
+              <td>
+                <%= q.points_gained %>
+              </td>
+            </tr> 
+            <%end%>
+          </tbody>
+        </table>
+      <% else %>
+        No Questions added
+      <% end %>
+    <div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <header>
+      <h2>Add New Question</h2>
+    </header>
+      <%= form_for @quis_question do |f| %>
+
+        <%= f.label :title, :class => "label" %><br>
+        <%= f.text_field :title, :placeholder => 'title', :class => 'form-control' %><br>
+
+        <%= f.label :points_gained, :class => "label" %><br>
+        <%= f.text_field :points_gained, :placeholder => 'points gained', :class => 'form-control' %><br>
+
+        <div class="row">
+          <div class="col-md-10">
+            <label for="username">Question 1</label>
+            <input type="text" name="quiz_question[question_1]" class="form-control" placeholder="answer" required autofocus>
+          </div>
+          <div class="col-md-2">
+            <label for="username">Correct</label><br>
+            <input type="radio" name="quiz_question[radio][]" value="1" placeholder="answer" required autofocus>
+          </div>
+        </div>
+        <br/>
+        <div class="row">
+          <div class="col-md-10">
+            <label for="username">Question 2</label>
+            <input type="text" name="quiz_question[question_2]" class="form-control" placeholder="answer" required autofocus>
+          </div>
+          <div class="col-md-2">
+            <label for="username">Correct</label><br>
+            <input type="radio" name="quiz_question[radio][]" value="2" placeholder="answer" required autofocus>
+          </div>
+        </div>
+        <br/>
+        <div class="row">
+          <div class="col-md-10">
+            <label for="username">Question 3</label>
+            <input type="text" name="quiz_question[question_3]" class="form-control" placeholder="answer" required autofocus>
+          </div>
+          <div class="col-md-2">
+            <label for="username">Correct</label><br>
+            <input type="radio" name="quiz_question[radio][]" value="3" placeholder="answer" required autofocus>
+          </div>
+        </div>
+        <br/>
+        <div class="row">
+          <div class="col-md-10">
+            <label for="username">Question 4</label>
+            <input type="text" name="quiz_question[question_4]" class="form-control" placeholder="answer" required autofocus>
+          </div>
+          <div class="col-md-2">
+            <label for="username">Correct</label><br>
+            <input type="radio" name="quiz_question[radio][]" value="4" placeholder="answer" required autofocus>
+          </div>
+        </div>
+        <br/>
+
+        <%= f.hidden_field :room_id, :value => @quiz.room_id %>
+        <p><%= f.submit 'Add Question', :class => 'btn btn-primary' %></p>
+
+      <% end %>
+  </div>
+</div>
