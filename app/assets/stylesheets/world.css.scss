@@ -320,3 +320,28 @@ a {
     height: 39px;
   }
 }
+
+.show-room {
+  padding: 30px 0px 0px 0px;
+  margin-bottom: 10px;
+
+  h2 {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    display: inline-block;
+    font-size: 3.2rem;
+    line-height: 1.1em;
+    font-weight: 200;
+  }
+
+  .create {
+    margin-top: 20px;
+    background-color: #E8737B;
+    border: none;
+    font-size: 15px;
+    text-align: center;
+    color: #fff;
+    width: 158px;
+    height: 39px;
+  }
+}

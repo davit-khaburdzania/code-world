@@ -1,16 +1,22 @@
-<h2> <%= @room.title %> </h2>
+<header class="show-room">
+  <h2> <%= @room.title %> </h2>
 
-<%- if @room.user_id == current_user.id %>
-  <h4>Options</h4>
-
-  <%-if !@room.quiz %>
-    <%= link_to 'Create quiz', new_quiz_path(:room_id => @room.id) %>
-  <% else %>
-    <%= link_to 'Edit quiz', edit_quiz_path(@room.quiz) %>
+  <%- if @room.user_id == current_user.id %>
+    <%-if !@room.quiz %>
+      <br>
+      <a href="<%= new_quiz_path(:room_id => @room.id) %>">
+        <button class="create">Create Quiz</button>
+      </a>
+    <% else %>
+      <br>
+      <a href="<%= edit_quiz_path(@room.quiz) %>">
+        <button class="create">Edit Quiz</button>
+      </a>
+    <% end %>
+    <br/>
+    <br/>
   <% end %>
-  <br/>
-  <hr>
-<% end %>
+</header>
 
 <div class="row">
   <div class="col-md-12">
